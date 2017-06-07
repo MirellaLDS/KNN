@@ -115,10 +115,11 @@ namespace program
             label3.Text = "Número de acertos: " + acertos;
         }
 
-        private void insertRow(Individuo ind)
+        private void insertRow(Individuo ind, int K)
         {
             double[] distanciaAntiga = new double[] { 100, 100, 100 };
-            Individuo[] proximos = new Individuo[3];
+            double[] distanciaAntiga2 = Enumerable.Repeat<double>(100, K).ToArray();
+            Individuo[] proximos = new Individuo[K];
 
             int index = 0;
 
@@ -166,12 +167,11 @@ namespace program
         private void button1_Click(object sender, EventArgs e)
         {
             dataGrid.Rows.Clear();
+            int K = Int32.Parse(txtNumber.Text);
 
             Individuo ind = new Individuo(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, "");
 
-            insertRow(ind);
-
-            int K = Int32.Parse(txtNumber.Text);
+            insertRow(ind, K);
 
             label10.Text = Processamento.classificarAmostra(individuos, ind, K);
         }
