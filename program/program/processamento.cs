@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace program
 {
-    public class processamento
+    public static class Processamento
     {
         // função que retorna a distância euclidiana entre 2 indivíduos
-        public double obterDistEuclidiana(Individuo ind1, Individuo ind2)
+        public static double obterDistEuclidiana(Individuo ind1, Individuo ind2)
         {
             /*
                 a distância euclidiana é a raiz quadrada da soma das
@@ -25,13 +25,13 @@ namespace program
             return Math.Sqrt(soma);
         }
 
-        public double normalizarEntradas()
+        public static double normalizarEntradas()
         {
             // Elaborar lógica.
             return 0;
         }
 
-        public string classificarAmostra(ArrayList individuos, Individuo novo_exemplo, int K)
+        public static string classificarAmostra(List<Individuo> individuos, Individuo novo_exemplo, int K)
         {
             // se o K for par decrementa
             if (K % 2 == 0)
@@ -44,18 +44,24 @@ namespace program
             // obtém o tamanho do vetor
             int tam_vet = individuos.Count;
 
-            Dictionary<double, Individuo> dist_individuos = new Dictionary<double, Individuo>();
+            Dictionary<int, Individuo> dist_individuos = new Dictionary<int, Individuo>();
 
             /*
 		        calcula-se a distância euclidiana do novo exemplo
 		        para cada amostra do conjunto de treinamento
 	        */
 
-            foreach (Individuo item in individuos)
-	        {
-                double dist = obterDistEuclidiana(item, novo_exemplo);
-                dist_individuos.Add(dist, item);
-	        }
+            //foreach (Individuo item in individuos)
+            //{
+            //    double dist = obterDistEuclidiana(item, novo_exemplo);
+            //    dist_individuos.Add(dist, item);
+            //}
+
+            for (int position = 0; position < tam_vet; position++)
+            {
+                double dist = obterDistEuclidiana(individuos[position], novo_exemplo);
+                dist_individuos.Add(position, individuos[position]);
+            }
 
             /*
 	            para decidir a qual classe pertence o novo exemplo,
@@ -70,7 +76,7 @@ namespace program
             {
                 if (contK == K)
                     break;
-                Individuo ind = individuos[contador] as Individuo;
+                Individuo ind = individuos[contador];
                 string classe = ind.classe;
 
                 if (classe == "Iris-setosa")

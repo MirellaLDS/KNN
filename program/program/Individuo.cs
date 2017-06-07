@@ -19,7 +19,12 @@ namespace program
             this.a = a;
             this.b = b;
             this.c = c;
+            this.d = d;
             this.classe = classe;
+        }
+
+        public Individuo()
+        {            
         }
 
     }
