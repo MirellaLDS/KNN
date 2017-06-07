@@ -7,3 +7,6 @@ c:\users\mlds\documents\visual studio 2012\Projects\program\program\obj\Debug\pr
 c:\users\mlds\documents\visual studio 2012\Projects\program\program\obj\Debug\program.csproj.GenerateResource.Cache
 c:\users\mlds\documents\visual studio 2012\Projects\program\program\obj\Debug\program.exe
 c:\users\mlds\documents\visual studio 2012\Projects\program\program\obj\Debug\program.pdb
+E:\KNN\program\program\bin\Debug\program.exe.config
+E:\KNN\program\program\obj\Debug\program.exe
+E:\KNN\program\program\obj\Debug\program.pdb

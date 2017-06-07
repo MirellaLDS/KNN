@@ -30,29 +30,32 @@ namespace program
 
             cFile.ShowDialog();
 
-            iresFile = cFile.FileName;
-            this.txtFile.Text = cFile.FileName;//get path file
-
-            //read data into unknown customerset
-            //read information in customer file
-            string line;
-
-            // Read the file and display it line by line.
-            file = new System.IO.StreamReader(iresFile);
-
-            while ((line = file.ReadLine()) != null)
+            if (cFile != null)
             {
-                string[] split = line.Split(' ');
+                iresFile = cFile.FileName;
+                this.txtFile.Text = cFile.FileName;//get path file
 
-                Individuo ind = new Individuo();
+                //read data into unknown customerset
+                //read information in customer file
+                string line;
 
-                ind.a = double.Parse(split[0]);
-                ind.b = double.Parse(split[1]);
-                ind.c = double.Parse(split[2]);
-                ind.d = double.Parse(split[3]);
-                ind.classe = split[4];
+                // Read the file and display it line by line.
+                file = new System.IO.StreamReader(iresFile);
 
-                individuos.Add(ind);
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] split = line.Split(' ');
+
+                    Individuo ind = new Individuo();
+
+                    ind.a = double.Parse(split[0]);
+                    ind.b = double.Parse(split[1]);
+                    ind.c = double.Parse(split[2]);
+                    ind.d = double.Parse(split[3]);
+                    ind.classe = split[4];
+
+                    individuos.Add(ind);
+                }
             }
         }
 
