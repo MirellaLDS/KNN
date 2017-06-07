@@ -10,3 +10,9 @@ c:\users\mlds\documents\visual studio 2012\Projects\program\program\obj\Debug\pr
 E:\KNN\program\program\bin\Debug\program.exe.config
 E:\KNN\program\program\obj\Debug\program.exe
 E:\KNN\program\program\obj\Debug\program.pdb
+E:\KNN\program\program\bin\Debug\program.exe
+E:\KNN\program\program\bin\Debug\program.pdb
+E:\KNN\program\program\obj\Debug\program.csprojResolveAssemblyReference.cache
+E:\KNN\program\program\obj\Debug\program.Form1.resources
+E:\KNN\program\program\obj\Debug\program.Properties.Resources.resources
+E:\KNN\program\program\obj\Debug\program.csproj.GenerateResource.Cache

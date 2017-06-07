@@ -14,12 +14,12 @@ namespace program
         public double c { get; set; }
         public double d { get; set; }
 
-        public Individuo(double a, double b, double c, double d, string classe)
+        public Individuo(string a, string b, string c, string d, string classe)
         {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-            this.d = d;
+            this.a = double.Parse(a);
+            this.b = double.Parse(b);
+            this.c = double.Parse(c);
+            this.d = double.Parse(d);
             this.classe = classe;
         }
 

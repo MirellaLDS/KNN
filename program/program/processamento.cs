@@ -51,12 +51,6 @@ namespace program
 		        para cada amostra do conjunto de treinamento
 	        */
 
-            //foreach (Individuo item in individuos)
-            //{
-            //    double dist = obterDistEuclidiana(item, novo_exemplo);
-            //    dist_individuos.Add(dist, item);
-            //}
-
             for (int position = 0; position < tam_vet; position++)
             {
                 double dist = obterDistEuclidiana(individuos[position], novo_exemplo);
