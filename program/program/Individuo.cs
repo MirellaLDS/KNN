@@ -13,6 +13,7 @@ namespace program
         public double b { get; set; }
         public double c { get; set; }
         public double d { get; set; }
+        public double distancia { get; set; }
 
         public Individuo(string a, string b, string c, string d, string classe)
         {

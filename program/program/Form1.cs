@@ -57,35 +57,14 @@ namespace program
                     individuos.Add(ind);
                 }
 
+                Processamento.normilizeFileData(individuos, null);
+
                 button1.Enabled = true;
-            }
-        }
-
-        private void lerArquivo(System.IO.StreamReader fileClassificado)
-        {
-            //read data into unknown customerset
-            //read information in customer file
-            string line;
-
-            while ((line = fileClassificado.ReadLine()) != null)
-            {
-                string[] split = line.Split(' ');
-
-                Individuo ind = new Individuo();
-
-                ind.a = double.Parse(split[0]);
-                ind.b = double.Parse(split[1]);
-                ind.c = double.Parse(split[2]);
-                ind.d = double.Parse(split[3]);
-                ind.classe = split[4];
-
-                individuos.Add(ind);
             }
         }
 
         private void btnClassify_Click(object sender, EventArgs e)
         {
-
             /*
 		        o K é a quantidade de vizinhos que serão
 		        levados em conta para classificação de um
@@ -117,59 +96,37 @@ namespace program
 
         private void insertRow(Individuo ind, int K)
         {
-            double[] distanciaAntiga = new double[] { 100, 100, 100 };
-            double[] distanciaAntiga2 = Enumerable.Repeat<double>(100, K).ToArray();
-            Individuo[] proximos = new Individuo[K];
+            dataGrid.Rows.Clear();
 
+            Dictionary<int, double> minValues = Processamento.findMinValeus(Processamento.findValuesWithDistance(individuos, ind, K), K);
+           
             int index = 0;
 
-            for (int i = 0; i < individuos.Count; i++)
-            {
-                double distanciaAtual = Processamento.obterDistEuclidiana(individuos[i], ind);
-
-                if (distanciaAtual < distanciaAntiga[0])
-                {
-                    proximos[0] = individuos[i];
-                    distanciaAntiga[0] = distanciaAtual;
-                }
-
-                if (distanciaAtual < distanciaAntiga[1] && distanciaAtual > distanciaAntiga[0])
-                {
-                    proximos[1] = individuos[i];
-                    distanciaAntiga[1] = distanciaAtual;
-                }
-
-                if (distanciaAtual < distanciaAntiga[2] && distanciaAtual > distanciaAntiga[1] && distanciaAtual > distanciaAntiga[0])
-                {
-                    proximos[2] = individuos[i];
-                    distanciaAntiga[2] = distanciaAtual;
-                }
-
-            }
-
-            for (int cont = 0; cont < proximos.Count(); cont++)
+            foreach (var item in minValues)
             {
                 index = index + 1;
 
-                string[] row = new string[6];
-                row[0] = index + "";
-                row[1] = proximos[cont].a.ToString();
-                row[2] = proximos[cont].b.ToString();
-                row[3] = proximos[cont].c.ToString();
-                row[4] = proximos[cont].d.ToString();
-                row[5] = proximos[cont].classe;
+                string[] column = new string[7];
+                column[0] = index.ToString();
+                column[1] = item.Key.ToString();
+                column[2] = individuos[item.Key].a.ToString();
+                column[3] = individuos[item.Key].b.ToString();
+                column[4] = individuos[item.Key].c.ToString();
+                column[5] = individuos[item.Key].d.ToString();
+                column[6] = individuos[item.Key].classe;
 
-                dataGrid.Rows.Add(row);
+                dataGrid.Rows.Add(column);
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGrid.Rows.Clear();
             int K = Int32.Parse(txtNumber.Text);
 
             Individuo ind = new Individuo(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, "");
+
+            Processamento.normilizeFileData(individuos, ind);
 
             insertRow(ind, K);
 
