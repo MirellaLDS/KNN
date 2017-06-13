@@ -57,7 +57,7 @@ namespace program
                     individuos.Add(ind);
                 }
 
-                Processamento.normilizeFileData(individuos, null);
+                //Processamento.normilizeFileData(individuos, null);
 
                 button1.Enabled = true;
             }
@@ -124,9 +124,27 @@ namespace program
         {
             int K = Int32.Parse(txtNumber.Text);
 
-            Individuo ind = new Individuo(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, "");
+            Individuo ind = new Individuo(textBox1.Text.Replace(".", ","), textBox2.Text.Replace(".", ","), textBox4.Text.Replace(".", ","), textBox3.Text.Replace(".", ","), "");
 
-            Processamento.normilizeFileData(individuos, ind);
+            //Individuo ind2 = new Individuo();
+            //ind2.a = 7.0;
+            //ind2.b = 2.8;
+            //ind2.c = 1.3;
+            //ind2.d = 4.1;
+            //ind2.classe = "Iris-versicolor";
+
+            //double dist2 = Processamento.obterDistEuclidiana(ind2, ind);
+            //ind2.distancia = dist2;
+            //List<Individuo> list = new List<Individuo>();
+            //list.Add(ind2);
+            //int i = 0;
+            //if (i >= 0)
+            //{
+            //    i++;
+            //    Console.Write("Mirella: " + Processamento.classificarAmostra(list, ind, K));
+            //}
+
+            //Processamento.normilizeFileData(individuos, ind);
 
             insertRow(ind, K);
 

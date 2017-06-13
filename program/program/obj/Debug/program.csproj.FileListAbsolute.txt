@@ -16,3 +16,12 @@ E:\KNN\program\program\obj\Debug\program.csprojResolveAssemblyReference.cache
 E:\KNN\program\program\obj\Debug\program.Form1.resources
 E:\KNN\program\program\obj\Debug\program.Properties.Resources.resources
 E:\KNN\program\program\obj\Debug\program.csproj.GenerateResource.Cache
+D:\Projetos\KNN\program\program\bin\Debug\program.exe.config
+D:\Projetos\KNN\program\program\bin\Debug\program.exe
+D:\Projetos\KNN\program\program\bin\Debug\program.pdb
+D:\Projetos\KNN\program\program\obj\Debug\program.csprojResolveAssemblyReference.cache
+D:\Projetos\KNN\program\program\obj\Debug\program.Form1.resources
+D:\Projetos\KNN\program\program\obj\Debug\program.Properties.Resources.resources
+D:\Projetos\KNN\program\program\obj\Debug\program.csproj.GenerateResource.Cache
+D:\Projetos\KNN\program\program\obj\Debug\program.exe
+D:\Projetos\KNN\program\program\obj\Debug\program.pdb

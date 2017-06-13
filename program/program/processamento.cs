@@ -64,7 +64,7 @@ namespace program
         {
 
             Dictionary<int, double> dist_individuos = findValuesWithDistance(individuos, novo_exemplo, K);
-
+          
             /*
 	            para decidir a qual classe pertence o novo exemplo,
 	            basta verificar a classe mais frequente dos K
